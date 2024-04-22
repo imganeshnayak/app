@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Feedback Entries</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 font-sans antialiased">
+    <!-- Main Content Container -->
+    <div class="container mx-auto mt-10 px-4 sm:px-0">
+        <div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
+            <!-- Feedback Entries section -->
+            <section>
+                <h2 class="text-xl mb-4 font-semibold">All Feedback Entries</h2>
+                <!-- Iterate over feedback entries and create a card for each entry -->
+                {% for feedback_entry in xy %}
+                <div class="border border-gray-200 rounded-lg p-4 mb-4">
+                    <p class="text-gray-600">{{ feedback_entry.id }}</p>
+                    <h3 class="text-lg font-semibold mb-2">{{ feedback_entry.course }}</h3>
+                    <p class="text-gray-600">{{ feedback_entry.section }}</p>
+                    <p class="text-gray-600">{{ feedback_entry.semester }}</p>
+                    <p class="text-gray-600">{{ feedback_entry.Feedback }}</p>
+                    <p class="text-gray-600">{{ feedback_entry.batch }}</p>
+                    <p class="text-gray-600">{{ feedback_entry.grading }}</p>
+                    
+                    <!-- Delete and Update buttons -->
+                    <div class="text-center mt-4">
+                        <a href="{% url 'delete' feedback_entry.id %}">
+                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded mr-2">Delete</button>
+                        </a>
+                      
+                    </div>
+                </div>
+                {% endfor %}
+            </section>
+        
+        </div>
+    </div>
+    <!-- Add Member Button -->
+    <div class="fixed bottom-10 right-10">
+        <a href="{% url 'post' %}">
+            <button class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Add Member</button>
+        </a>
+    </div>
+
+</body>
+</html>

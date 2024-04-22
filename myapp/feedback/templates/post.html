@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>College Feedback Form</h2>
+        <form action="" method="POST">
+         {% csrf_token %}
+            <label for="course">Your Course:</label>
+            <input type="text" id="student_name" name="course" required>
+
+            <label for="section">Your Section:</label>
+            <input type="email" id="section" name="section" required>
+
+            <label for="teacher_name">Your Semester:</label>
+            <input type="text" id="teacher_name" name="semester" required>
+
+            <label for="subject">Your Batch:</label>
+            <input type="text" id="subject" name="batch" required>
+
+            <label for="feedback">Feedback:</label>
+            <textarea id="feedback" name="Feedback" required></textarea>
+
+            <label for="grading">Grading:</label>
+            <select id="grading" name="grading" required>
+                <option value="">-- Select Grade --</option>
+                <option value="A">A (Excellent)</option>
+                <option value="B">B (Good)</option>
+                <option value="C">C (Average)</option>
+                <option value="D">D (Below Average)</option>
+                <option value="F">F (Fail)</option>
+            </select>
+
+            <input type="submit" value="Submit Feedback">
+        </form>
+    </div>
+</body>
+</html>
